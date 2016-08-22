@@ -1,7 +1,5 @@
 import os
 import subprocess
-subprocess.call(["rsync", "10.0.2.54", "-rvazh", "/usr/src","/usr/src/",])
-
 # We need to connect to remote host, than check for existing file / directory
 def check_dir_exist(os_dir):
     if not os.path.exists(os_dir):
