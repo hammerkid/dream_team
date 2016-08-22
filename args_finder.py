@@ -1,8 +1,8 @@
 import re
 import sys
 
-def passwd_arg():
-    search_passwd = re.compile(r'\b[p][a][s].*')
+def passwd_arg():   #find and return password
+    search_passwd = re.compile(r'\b[p][a][s].*')    #pattern for password search
     for args in sys.argv:
         #print args
         try:
@@ -16,10 +16,10 @@ def passwd_arg():
 
 
 
-def opts_arg():
+def opts_arg():        #search for options for rsyc(need improve with allow opts)
     allow_opts = ['P', 'a', 'v', 'S', 'z', 'q', 'progress', 'e']
     opts = []
-    search_opts = re.compile(r'\-+.*')
+    search_opts = re.compile(r'\-+.*')        #pattern for search options starts with -
     for args in sys.argv:
         try:
             x=[]
@@ -35,19 +35,19 @@ def opts_arg():
 optsx = opts_arg()
 print optsx
 
-def path_arg():
+def path_arg():    #find path in args
     path = []
-    search_path = re.compile('\/+.*')
+    search_path = re.compile('\/+.*') #pattern for search path
     for args in sys.argv:
         try:
             path.append(search_path.search(args).group())
-            return path
+            return path  #1st in list is from path 2nd is dest path
         except:
             pass
 
 
-def IP_arg():
-    search_IP = re.compile(r'\w*,\w*@\w*:\w*')
+def IP_arg():    #search for IP and name of remote machine
+    search_IP = re.compile(r'\w*,\w*@\w*:\w*')  #pattern for IP and name
     for args in sys.argv:
         try:
             IP = search_IP.search(args).group()
