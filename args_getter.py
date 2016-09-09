@@ -34,3 +34,20 @@ stdin.write(passwd)
 stdin.flush()
 data = stdout.read() + stderr.read()
 client.close()
+
+
+import os
+def pinger():
+    x=1
+    good_ip = []
+    try:
+        for _ in range(0,200):
+            response = os.system('ping -c 1 192.168.6.{}'.format(x))
+            x+=1
+            if response == 0:
+                good_ip.append(x )
+    except:
+        pass
+
+
+ping = pinger()
